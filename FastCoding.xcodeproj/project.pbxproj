@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D6526CC1D34CAFB00CFA366 /* FastCoding.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 9D6526CB1D34CAFB00CFA366 /* FastCoding.xcscheme */; };
+		9DB51A381D34DBA3003392BB /* ChooseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB51A2F1D34DBA3003392BB /* ChooseWindowController.m */; };
+		9DB51A391D34DBA3003392BB /* ChooseWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB51A301D34DBA3003392BB /* ChooseWindowController.xib */; };
+		9DB51A3A1D34DBA3003392BB /* PropertyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB51A331D34DBA3003392BB /* PropertyModel.m */; };
+		9DB51A3B1D34DBA3003392BB /* FastChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB51A361D34DBA3003392BB /* FastChooseCell.m */; };
+		9DB51A3C1D34DBA3003392BB /* FastChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB51A371D34DBA3003392BB /* FastChooseCell.xib */; };
+		9DB51A421D34DC13003392BB /* FastCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB51A3F1D34DC13003392BB /* FastCoding.m */; };
+		9DB51A431D34DC13003392BB /* FastCodingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB51A411D34DC13003392BB /* FastCodingDataManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D6526C71D34CAFB00CFA366 /* FastCoding.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastCoding.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6526CB1D34CAFB00CFA366 /* FastCoding.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = FastCoding.xcscheme; path = FastCoding.xcodeproj/xcshareddata/xcschemes/FastCoding.xcscheme; sourceTree = SOURCE_ROOT; };
+		9D6526D01D34CAFB00CFA366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB51A2E1D34DBA3003392BB /* ChooseWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseWindowController.h; sourceTree = "<group>"; };
+		9DB51A2F1D34DBA3003392BB /* ChooseWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseWindowController.m; sourceTree = "<group>"; };
+		9DB51A301D34DBA3003392BB /* ChooseWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseWindowController.xib; sourceTree = "<group>"; };
+		9DB51A321D34DBA3003392BB /* PropertyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyModel.h; sourceTree = "<group>"; };
+		9DB51A331D34DBA3003392BB /* PropertyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyModel.m; sourceTree = "<group>"; };
+		9DB51A351D34DBA3003392BB /* FastChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastChooseCell.h; sourceTree = "<group>"; };
+		9DB51A361D34DBA3003392BB /* FastChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastChooseCell.m; sourceTree = "<group>"; };
+		9DB51A371D34DBA3003392BB /* FastChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastChooseCell.xib; sourceTree = "<group>"; };
+		9DB51A3E1D34DC13003392BB /* FastCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastCoding.h; sourceTree = "<group>"; };
+		9DB51A3F1D34DC13003392BB /* FastCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastCoding.m; sourceTree = "<group>"; };
+		9DB51A401D34DC13003392BB /* FastCodingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastCodingDataManager.h; sourceTree = "<group>"; };
+		9DB51A411D34DC13003392BB /* FastCodingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastCodingDataManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		9D6526BF1D34CAFB00CFA366 = {
+			isa = PBXGroup;
+			children = (
+				9D6526C91D34CAFB00CFA366 /* FastCoding */,
+				9D6526C81D34CAFB00CFA366 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9D6526C81D34CAFB00CFA366 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D6526C71D34CAFB00CFA366 /* FastCoding.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D6526C91D34CAFB00CFA366 /* FastCoding */ = {
+			isa = PBXGroup;
+			children = (
+				9DB51A3D1D34DC13003392BB /* Manager */,
+				9DB51A2D1D34DBA3003392BB /* Controller */,
+				9DB51A311D34DBA3003392BB /* Model */,
+				9DB51A341D34DBA3003392BB /* View */,
+				9D6526CA1D34CAFB00CFA366 /* Supporting Files */,
+			);
+			path = FastCoding;
+			sourceTree = "<group>";
+		};
+		9D6526CA1D34CAFB00CFA366 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D6526D01D34CAFB00CFA366 /* Info.plist */,
+				9D6526CB1D34CAFB00CFA366 /* FastCoding.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DB51A2D1D34DBA3003392BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9DB51A2E1D34DBA3003392BB /* ChooseWindowController.h */,
+				9DB51A2F1D34DBA3003392BB /* ChooseWindowController.m */,
+				9DB51A301D34DBA3003392BB /* ChooseWindowController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9DB51A311D34DBA3003392BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DB51A321D34DBA3003392BB /* PropertyModel.h */,
+				9DB51A331D34DBA3003392BB /* PropertyModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DB51A341D34DBA3003392BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DB51A351D34DBA3003392BB /* FastChooseCell.h */,
+				9DB51A361D34DBA3003392BB /* FastChooseCell.m */,
+				9DB51A371D34DBA3003392BB /* FastChooseCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DB51A3D1D34DC13003392BB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9DB51A3E1D34DC13003392BB /* FastCoding.h */,
+				9DB51A3F1D34DC13003392BB /* FastCoding.m */,
+				9DB51A401D34DC13003392BB /* FastCodingDataManager.h */,
+				9DB51A411D34DC13003392BB /* FastCodingDataManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D6526C61D34CAFB00CFA366 /* FastCoding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D6526D31D34CAFB00CFA366 /* Build configuration list for PBXNativeTarget "FastCoding" */;
+			buildPhases = (
+				9D6526C41D34CAFB00CFA366 /* Sources */,
+				9D6526C51D34CAFB00CFA366 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastCoding;
+			productName = FastCoding;
+			productReference = 9D6526C71D34CAFB00CFA366 /* FastCoding.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D6526C01D34CAFB00CFA366 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = DevDu;
+				TargetAttributes = {
+					9D6526C61D34CAFB00CFA366 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9D6526C31D34CAFB00CFA366 /* Build configuration list for PBXProject "FastCoding" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9D6526BF1D34CAFB00CFA366;
+			productRefGroup = 9D6526C81D34CAFB00CFA366 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D6526C61D34CAFB00CFA366 /* FastCoding */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D6526C51D34CAFB00CFA366 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB51A391D34DBA3003392BB /* ChooseWindowController.xib in Resources */,
+				9DB51A3C1D34DBA3003392BB /* FastChooseCell.xib in Resources */,
+				9D6526CC1D34CAFB00CFA366 /* FastCoding.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D6526C41D34CAFB00CFA366 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB51A3A1D34DBA3003392BB /* PropertyModel.m in Sources */,
+				9DB51A421D34DC13003392BB /* FastCoding.m in Sources */,
+				9DB51A3B1D34DBA3003392BB /* FastChooseCell.m in Sources */,
+				9DB51A381D34DBA3003392BB /* ChooseWindowController.m in Sources */,
+				9DB51A431D34DC13003392BB /* FastCodingDataManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9D6526D11D34CAFB00CFA366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9D6526D21D34CAFB00CFA366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9D6526D41D34CAFB00CFA366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = FastCoding/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = DevDu.FastCoding;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		9D6526D51D34CAFB00CFA366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = FastCoding/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = DevDu.FastCoding;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D6526C31D34CAFB00CFA366 /* Build configuration list for PBXProject "FastCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D6526D11D34CAFB00CFA366 /* Debug */,
+				9D6526D21D34CAFB00CFA366 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D6526D31D34CAFB00CFA366 /* Build configuration list for PBXNativeTarget "FastCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D6526D41D34CAFB00CFA366 /* Debug */,
+				9D6526D51D34CAFB00CFA366 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D6526C01D34CAFB00CFA366 /* Project object */;
+}
