@@ -27,6 +27,11 @@
 @property (nonatomic,strong) NSString * name;
 
 /**
+ *  从哪个文件过来的
+ */
+@property (nonatomic,strong) NSString * fileFrom;
+
+/**
  *  是否是只读
  */
 @property (nonatomic,assign) BOOL isOnlyRead;
@@ -48,6 +53,12 @@
  *  是否需要get方法
  */
 @property (nonatomic,assign) BOOL  isNeedGet;
+
+/**
+ *  是否需要懒加载get方法
+ */
+@property (nonatomic,assign) BOOL  isNeedLazyGet;
+
 /**
  *  是否已经生成
  */

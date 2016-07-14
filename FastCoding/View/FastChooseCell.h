@@ -14,6 +14,7 @@
 @property (strong) IBOutlet NSTextField *propertyName1;
 @property (strong) IBOutlet NSButton *getButton1;
 @property (strong) IBOutlet NSButton *setButton1;
+@property (strong) IBOutlet NSButton *lazyButton1;
 
 @property (nonatomic,strong) PropertyModel * model;
 @end

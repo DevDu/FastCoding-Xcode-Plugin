@@ -7,6 +7,9 @@
 //
 
 #import "FastCodingDataManager.h"
+@interface FastCodingDataManager ()
+
+@end
 
 @implementation FastCodingDataManager
 
@@ -36,15 +39,33 @@
     return @"";
 }
 
+- (NSString *) getInterfaceWithUrl:(NSString *) url
+{
+    NSError * error = nil;
+    NSString * pathContent = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&error];
+    NSString * zhengze = @"@interface([\\s\\S]*?)@end";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:zhengze options:0 error:nil];
+    NSArray *matches = [regex matchesInString:pathContent options:0 range:NSMakeRange(0, pathContent.length)];
+    
+    for (int i = 0; i < matches.count; i++) {
+        
+        NSRange firstHalfRange = [matches[i] range];
+        if (firstHalfRange.length > 0) {
+            NSString *resultString1 = [pathContent substringWithRange:firstHalfRange];
+            return resultString1;
+        }
+    }
+    return @"";
+}
 
-- (void) getFilePropertysWithContent:(NSString *) content
+
+- (void) getFilePropertysWithContent:(NSString *) content isFromfile:(NSString *) file
 {
     NSString * shuxing = content;
     NSString * zhengze = @"@property([\\s\\S]*?);";
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:zhengze options:0 error:nil];
     NSArray *matches = [regex matchesInString:shuxing options:0 range:NSMakeRange(0, shuxing.length)];
     
-    self.propertyArray = [NSMutableArray array];
     for (int i = 0; i < matches.count; i++) {
         
         NSRange firstHalfRange = [matches[i] range];
@@ -56,7 +77,7 @@
                 resultString1 = [resultString1 stringByReplacingOccurrencesOfString:@"IBOutlet" withString:@""];
             }
             
-            NSArray * keyword=   [self getPropertysKeywordWithProperty:resultString1.mutableCopy];
+            NSArray * keyword  =  [self getPropertysKeywordWithProperty:resultString1.mutableCopy];
             NSArray * dateType =  [self getPropertyTypeAndNameWithProperty:resultString1];
             PropertyModel * proMoel = [[PropertyModel alloc] init];
             proMoel.atomicType = [keyword firstObject];
@@ -76,6 +97,8 @@
             }
             proMoel.isNeedGet = NO;
             proMoel.isNeedSet = NO;
+            proMoel.isNeedLazyGet = NO;
+            proMoel.fileFrom = file;
             [self.propertyArray addObject:proMoel];
             
         }
@@ -251,11 +274,30 @@
     NSArray * typeArray = @[@"id"];
     NSString *  setMethodStr = @"";
     if ([weakArray containsObject:model.memorykeyWord] || [typeArray containsObject:model.dataType]) {
-        setMethodStr = [NSString stringWithFormat:@"\n- (%@)%@\n{\n   return _%@;\n}",model.dataType,model.name,model.name];
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@)%@ {\n   return _%@;\n}",model.dataType,model.name,model.name];
     }
     else
     {
-        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@\n{\n   return _%@;\n}",model.dataType,model.name,model.name];
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n   return _%@;\n}",model.dataType,model.name,model.name];
+    }
+    return setMethodStr;
+}
+
+//get lazy
+- (NSString *) productGetLazyMethodWithPropertyModel:(PropertyModel *) model
+{
+    NSArray * weakArray = @[@"assign",
+                            @"weak"];
+    NSArray * typeArray = @[@"id"];
+    NSString *  setMethodStr = @"";
+    if (![weakArray containsObject:model.memorykeyWord] || ![typeArray containsObject:model.dataType]) {
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n	if(_%@ == nil) {\n       _%@ = [[%@ alloc] init];\n	}\n	return _%@;\n}",
+                        model.dataType,
+                        model.name,
+                        model.name,
+                        model.name,
+                        model.dataType,
+                        model.name];
     }
     return setMethodStr;
 }

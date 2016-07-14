@@ -5,45 +5,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner">
-            <connections>
-                <outlet property="getButton1" destination="nHQ-c2-RdT" id="Wtw-Qx-kWO"/>
-                <outlet property="propertyName1" destination="ZKS-Uf-3Oh" id="hb7-cD-60i"/>
-                <outlet property="setButton1" destination="yTY-nM-7le" id="4k0-Vr-swp"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <tableCellView id="leH-Fc-lxe" customClass="FastChooseCell">
-            <rect key="frame" x="0.0" y="0.0" width="364" height="33"/>
+            <rect key="frame" x="0.0" y="0.0" width="426" height="33"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="yTY-nM-7le">
-                    <rect key="frame" x="311" y="8" width="41" height="18"/>
+                    <rect key="frame" x="314" y="7" width="41" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="37" id="Ivo-fk-uNK"/>
-                        <constraint firstAttribute="height" constant="14" id="g1A-1K-r4f"/>
+                        <constraint firstAttribute="width" constant="37" id="JBO-v5-Si9"/>
+                        <constraint firstAttribute="height" constant="14" id="pHE-TX-ol7"/>
                     </constraints>
                     <buttonCell key="cell" type="check" title="set" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1bO-T1-5ea">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="setAction:" target="leH-Fc-lxe" id="5fk-JL-qRz"/>
-                    </connections>
-                </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="nHQ-c2-RdT">
-                    <rect key="frame" x="256" y="7" width="42" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="38" id="19D-HG-4XN"/>
-                        <constraint firstAttribute="height" constant="14" id="APa-be-3l5"/>
-                    </constraints>
-                    <buttonCell key="cell" type="check" title="get" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="6L2-C2-Dtn">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="getAction:" target="leH-Fc-lxe" id="IgB-yx-FBd"/>
+                        <action selector="setAction:" target="leH-Fc-lxe" id="biD-uf-XRM"/>
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-Uf-3Oh">
@@ -54,25 +34,57 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </textFieldCell>
                 </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="PBd-vH-B7z">
+                    <rect key="frame" x="367" y="7" width="47" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="43" id="F8S-Xh-djI"/>
+                        <constraint firstAttribute="height" constant="14" id="vmY-nY-SG8"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="lazy" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qN1-v7-AHu">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="lazyAction:" target="leH-Fc-lxe" id="ZYy-r3-uzF"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="nHQ-c2-RdT">
+                    <rect key="frame" x="258" y="7" width="42" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="2S8-pd-aRJ"/>
+                        <constraint firstAttribute="height" constant="14" id="KHn-wc-unC"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="get" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="6L2-C2-Dtn">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="getAction:" target="leH-Fc-lxe" id="Xel-kG-vAP"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="yTY-nM-7le" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="9" id="15V-ru-Yc7"/>
-                <constraint firstItem="ZKS-Uf-3Oh" firstAttribute="leading" secondItem="leH-Fc-lxe" secondAttribute="leading" constant="14" id="1rU-MZ-X17"/>
-                <constraint firstItem="nHQ-c2-RdT" firstAttribute="leading" secondItem="ZKS-Uf-3Oh" secondAttribute="trailing" constant="24" id="9pc-76-ajS"/>
-                <constraint firstItem="ZKS-Uf-3Oh" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="4" id="RvA-JQ-8hF"/>
-                <constraint firstAttribute="bottom" secondItem="ZKS-Uf-3Oh" secondAttribute="bottom" constant="4" id="aDZ-Pp-tCW"/>
-                <constraint firstAttribute="bottom" secondItem="nHQ-c2-RdT" secondAttribute="bottom" constant="9" id="c4e-7B-Xe9"/>
-                <constraint firstItem="nHQ-c2-RdT" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="10" id="h9l-da-1WG"/>
-                <constraint firstAttribute="bottom" secondItem="yTY-nM-7le" secondAttribute="bottom" constant="10" id="hbM-rt-Qny"/>
-                <constraint firstItem="yTY-nM-7le" firstAttribute="leading" secondItem="nHQ-c2-RdT" secondAttribute="trailing" constant="17" id="oqy-ol-Ffq"/>
-                <constraint firstAttribute="trailing" secondItem="yTY-nM-7le" secondAttribute="trailing" constant="14" id="xyI-Eh-zc8"/>
+                <constraint firstAttribute="trailing" secondItem="PBd-vH-B7z" secondAttribute="trailing" constant="14" id="4De-Cy-Jwv"/>
+                <constraint firstItem="nHQ-c2-RdT" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="10" id="Dlx-zN-7gU"/>
+                <constraint firstAttribute="bottom" secondItem="yTY-nM-7le" secondAttribute="bottom" constant="9" id="GI9-Qb-F5f"/>
+                <constraint firstAttribute="bottom" secondItem="ZKS-Uf-3Oh" secondAttribute="bottom" constant="4" id="M0D-zq-EQj"/>
+                <constraint firstAttribute="bottom" secondItem="nHQ-c2-RdT" secondAttribute="bottom" constant="9" id="MOa-Ma-TnE"/>
+                <constraint firstItem="ZKS-Uf-3Oh" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="4" id="MRP-OI-ajG"/>
+                <constraint firstAttribute="bottom" secondItem="PBd-vH-B7z" secondAttribute="bottom" constant="9" id="RIu-qX-nYt"/>
+                <constraint firstItem="yTY-nM-7le" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="10" id="YZU-Be-qeH"/>
+                <constraint firstItem="nHQ-c2-RdT" firstAttribute="leading" secondItem="ZKS-Uf-3Oh" secondAttribute="trailing" constant="26" id="g3n-sA-5nG"/>
+                <constraint firstItem="yTY-nM-7le" firstAttribute="leading" secondItem="nHQ-c2-RdT" secondAttribute="trailing" constant="18" id="gNN-At-H1h"/>
+                <constraint firstItem="PBd-vH-B7z" firstAttribute="leading" secondItem="yTY-nM-7le" secondAttribute="trailing" constant="16" id="hex-86-w1S"/>
+                <constraint firstItem="ZKS-Uf-3Oh" firstAttribute="leading" secondItem="leH-Fc-lxe" secondAttribute="leading" constant="14" id="pIM-40-npE"/>
+                <constraint firstItem="PBd-vH-B7z" firstAttribute="top" secondItem="leH-Fc-lxe" secondAttribute="top" constant="10" id="ty8-UF-SRS"/>
             </constraints>
             <connections>
-                <outlet property="getButton1" destination="nHQ-c2-RdT" id="mBL-Ou-ECW"/>
-                <outlet property="propertyName1" destination="ZKS-Uf-3Oh" id="mCf-Eo-m8M"/>
-                <outlet property="setButton1" destination="yTY-nM-7le" id="hnm-5G-PHh"/>
+                <outlet property="getButton1" destination="nHQ-c2-RdT" id="uRz-lZ-ol4"/>
+                <outlet property="lazyButton1" destination="PBd-vH-B7z" id="yOC-UA-h0o"/>
+                <outlet property="propertyName1" destination="ZKS-Uf-3Oh" id="hoH-lG-7O3"/>
+                <outlet property="setButton1" destination="yTY-nM-7le" id="S8Z-mi-ONJ"/>
             </connections>
-            <point key="canvasLocation" x="228" y="298.5"/>
+            <point key="canvasLocation" x="259" y="298.5"/>
         </tableCellView>
     </objects>
 </document>

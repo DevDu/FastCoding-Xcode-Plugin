@@ -13,29 +13,29 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="选择要生成的属性" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Select the properties to be generated" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="427" y="350" width="480" height="280"/>
+            <rect key="contentRect" x="427" y="350" width="500" height="500"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="280"/>
+                <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibp-3w-dVh">
-                        <rect key="frame" x="0.0" y="50" width="480" height="230"/>
+                        <rect key="frame" x="0.0" y="50" width="500" height="450"/>
                         <clipView key="contentView" id="X6L-ZF-R4M">
-                            <rect key="frame" x="1" y="1" width="478" height="228"/>
+                            <rect key="frame" x="1" y="1" width="498" height="448"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="51X-p6-LRx">
-                                    <rect key="frame" x="0.0" y="0.0" width="478" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="498" height="448"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="475" minWidth="40" maxWidth="1000" id="zOK-Wq-s2n">
+                                        <tableColumn width="495" minWidth="40" maxWidth="1000" id="zOK-Wq-s2n">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -48,8 +48,8 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
-                                                <tableCellView id="Xvp-bW-bj8" customClass="TestView">
-                                                    <rect key="frame" x="1" y="1" width="475" height="17"/>
+                                                <tableCellView id="Xvp-bW-bj8" customClass="FastChooseCell">
+                                                    <rect key="frame" x="1" y="1" width="495" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygo-pI-kKg">
@@ -73,7 +73,7 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="yZe-6S-Zes">
-                            <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                            <rect key="frame" x="1" y="-14" width="0.0" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Fel-vg-xqJ">
@@ -82,10 +82,10 @@
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zZ5-lT-rWm">
-                        <rect key="frame" x="192" y="7" width="96" height="32"/>
+                        <rect key="frame" x="202" y="7" width="96" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="IOH-G9-N62"/>
-                            <constraint firstAttribute="width" constant="84" id="fYa-Cz-PAW"/>
+                            <constraint firstAttribute="width" constant="84" id="2H7-KP-QDi"/>
+                            <constraint firstAttribute="height" constant="21" id="T7e-u3-hs5"/>
                         </constraints>
                         <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="q33-Gm-Oeo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -97,12 +97,12 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ibp-3w-dVh" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="7J1-RF-xF0"/>
-                    <constraint firstAttribute="bottom" secondItem="ibp-3w-dVh" secondAttribute="bottom" constant="50" id="Yw3-Pz-gP7"/>
-                    <constraint firstItem="ibp-3w-dVh" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="cal-EB-ZjW"/>
-                    <constraint firstAttribute="bottom" secondItem="zZ5-lT-rWm" secondAttribute="bottom" constant="14" id="jsh-qH-dTm"/>
-                    <constraint firstAttribute="trailing" secondItem="ibp-3w-dVh" secondAttribute="trailing" id="vXO-yp-wJ1"/>
-                    <constraint firstItem="zZ5-lT-rWm" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="wZd-qr-uaa"/>
+                    <constraint firstAttribute="trailing" secondItem="ibp-3w-dVh" secondAttribute="trailing" id="Lbk-ak-djQ"/>
+                    <constraint firstItem="ibp-3w-dVh" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="PN5-o2-cUW"/>
+                    <constraint firstAttribute="bottom" secondItem="zZ5-lT-rWm" secondAttribute="bottom" constant="14" id="WpS-dT-d7S"/>
+                    <constraint firstItem="zZ5-lT-rWm" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="XK8-HP-lGD"/>
+                    <constraint firstItem="ibp-3w-dVh" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="YSq-j7-paJ"/>
+                    <constraint firstItem="zZ5-lT-rWm" firstAttribute="top" secondItem="ibp-3w-dVh" secondAttribute="bottom" constant="15" id="eED-l5-dR4"/>
                 </constraints>
             </view>
             <connections>

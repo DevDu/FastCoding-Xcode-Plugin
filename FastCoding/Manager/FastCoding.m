@@ -104,8 +104,10 @@ static FastCoding *sharedPlugin;
         [actionMenuItem setTarget:self];
         [[menuItem submenu] addItem:actionMenuItem];
         
-        NSMenuItem *actionMenuItem2 = [[NSMenuItem alloc] initWithTitle:@"Generate Getters and Setters" action:@selector(chooseSetGet) keyEquivalent:@""];
+        NSMenuItem *actionMenuItem2 = [[NSMenuItem alloc] initWithTitle:@"Generate Getters and Setters" action:@selector(chooseSetGet) keyEquivalent:@"="];
         [actionMenuItem2 setTarget:self];
+        [menuItem setKeyEquivalentModifierMask: NSShiftKeyMask | NSCommandKeyMask];
+
         [[menuItem submenu] addItem:actionMenuItem2];
         return YES;
     } else {

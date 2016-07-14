@@ -17,7 +17,7 @@
 @property (nonatomic, copy) NSString *currentFilePath;
 @property (nonatomic) NSTextView *currentTextView;
 @property (nonatomic,strong) NSString * currentFileContent;
-@property (nonatomic, strong, readonly) NSBundle* bundle;
+@property (nonatomic,strong, readonly) NSBundle* bundle;
 @property (nonatomic,strong) ChooseWindowController * chooseWindow;
 
 

@@ -19,12 +19,16 @@
 
 @implementation ChooseWindowController
 
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
     FastCodingDataManager * shareManager = [FastCodingDataManager sharedDataManager];
     NSString * content = [shareManager inMfileGetHfileContentWithUrl:[FastCoding sharedPlugin].currentFilePath];
-    [shareManager getFilePropertysWithContent:content];
+    [FastCodingDataManager sharedDataManager].propertyArray = [NSMutableArray array];
+    [shareManager getFilePropertysWithContent:content isFromfile:@".h"];
+     NSString * content1 = [[FastCodingDataManager sharedDataManager] getInterfaceWithUrl:[FastCoding sharedPlugin].currentFilePath];
+    [shareManager getFilePropertysWithContent:content1 isFromfile:@".m"];
     self.dataArray = shareManager.propertyArray;
     
     self.tableView.delegate = self;
@@ -43,7 +47,7 @@
         //如果还没有生成的
         if (!model.isAleadyProduct)
         {
-            if ((model.isNeedSet == NO) && (model.isNeedGet == NO))
+            if ((model.isNeedSet == NO) && (model.isNeedGet == NO)&& (model.isNeedLazyGet == NO))
             {
                 continue;
             }
@@ -56,6 +60,12 @@
             else  if (model.isNeedGet)
             {
                 NSString * strSet =   [[FastCodingDataManager sharedDataManager] productGetMethodWithPropertyModel:model];
+                model.isAleadyProduct = YES;
+                contentStr = [contentStr  stringByAppendingString:strSet];
+            }
+            else  if(model.isNeedLazyGet)
+            {
+                NSString * strSet =   [[FastCodingDataManager sharedDataManager] productGetLazyMethodWithPropertyModel:model];
                 model.isAleadyProduct = YES;
                 contentStr = [contentStr  stringByAppendingString:strSet];
             }
@@ -77,9 +87,17 @@
     cell.getButton1.tag = row;
     PropertyModel * model = self.dataArray[row];
     cell.model = model;
-    cell.propertyName1.stringValue = model.propertyStr;
+    cell.propertyName1.stringValue = [NSString stringWithFormat:@"%@ || %@",model.fileFrom,model.propertyStr];
     cell.getButton1.objectValue = @(model.isNeedGet);
     cell.setButton1.objectValue = @(model.isNeedSet);
+    cell.lazyButton1.objectValue = @(model.isNeedLazyGet);
+    
+    NSArray * weakArray = @[@"assign",
+                            @"weak"];
+    NSArray * typeArray = @[@"id"];
+    if ([weakArray containsObject:model.memorykeyWord] || [typeArray containsObject:model.dataType]) {
+        cell.lazyButton1.enabled = NO;
+    }
     return cell;
 }
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row

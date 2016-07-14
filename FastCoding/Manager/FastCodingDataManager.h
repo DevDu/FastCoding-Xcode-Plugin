@@ -14,16 +14,21 @@
 
 @property (nonatomic,strong) NSMutableArray * propertyArray;
 
-
 + (instancetype) sharedDataManager;
 
 - (NSString *) inMfileGetHfileContentWithUrl:(NSString *) url;
-- (void) getFilePropertysWithContent:(NSString *) content;
+
+
+- (NSString *) getInterfaceWithUrl:(NSString *) url;
+- (void) getFilePropertysWithContent:(NSString *) content isFromfile:(NSString *) file;
+//all 
 - (NSString *) getFilePropertysWithContent:(NSString *) content isSetMethod:(BOOL) isSetMethod;
 
 - (NSArray *) getPropertysKeywordWithProperty:(NSString *)propertyStr;
 - (NSMutableArray *) getPropertyTypeAndNameWithProperty:(NSString *) propertyStr;
 
+
 - (NSString *) productSetMethodWithPropertyModel:(PropertyModel *) model;
 - (NSString *) productGetMethodWithPropertyModel:(PropertyModel *) model;
+- (NSString *) productGetLazyMethodWithPropertyModel:(PropertyModel *) model;
 @end
