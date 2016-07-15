@@ -43,8 +43,8 @@
 {
     NSError * error = nil;
     NSString * pathContent = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:&error];
-    NSString * zhengze = @"@interface([\\s\\S]*?)@end";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:zhengze options:0 error:nil];
+    NSString * regularStr = @"@interface([\\s\\S]*?)@end";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularStr options:0 error:nil];
     NSArray *matches = [regex matchesInString:pathContent options:0 range:NSMakeRange(0, pathContent.length)];
     
     for (int i = 0; i < matches.count; i++) {
@@ -61,16 +61,16 @@
 
 - (void) getFilePropertysWithContent:(NSString *) content isFromfile:(NSString *) file
 {
-    NSString * shuxing = content;
-    NSString * zhengze = @"@property([\\s\\S]*?);";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:zhengze options:0 error:nil];
-    NSArray *matches = [regex matchesInString:shuxing options:0 range:NSMakeRange(0, shuxing.length)];
+    NSString * propertyStr = content;
+    NSString * regularStr = @"@property([\\s\\S]*?);";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularStr options:0 error:nil];
+    NSArray *matches = [regex matchesInString:propertyStr options:0 range:NSMakeRange(0, propertyStr.length)];
     
     for (int i = 0; i < matches.count; i++) {
         
         NSRange firstHalfRange = [matches[i] range];
         if (firstHalfRange.length > 0) {
-            NSString *resultString1 = [shuxing substringWithRange:firstHalfRange];
+            NSString *resultString1 = [propertyStr substringWithRange:firstHalfRange];
             NSRange range = [resultString1 rangeOfString:@"IBOutlet"];
             if(range.location !=NSNotFound)
             {
@@ -108,16 +108,16 @@
 - (NSString *) getFilePropertysWithContent:(NSString *) content isSetMethod:(BOOL) isSetMethod
 {
     
-    NSString * shuxing = content;
-    NSString * zhengze = @"@property([\\s\\S]*?);";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:zhengze options:0 error:nil];
-    NSArray *matches = [regex matchesInString:shuxing options:0 range:NSMakeRange(0, shuxing.length)];
+    NSString * propertyStr = content;
+    NSString * regularStr = @"@property([\\s\\S]*?);";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularStr options:0 error:nil];
+    NSArray *matches = [regex matchesInString:propertyStr options:0 range:NSMakeRange(0, propertyStr.length)];
     
     NSString * contentStr = @"";
     for (int i = 0; i < matches.count; i++) {
         NSRange firstHalfRange = [matches[i] range];
         if (firstHalfRange.length > 0) {
-            NSString *resultString1 = [shuxing substringWithRange:firstHalfRange];
+            NSString *resultString1 = [propertyStr substringWithRange:firstHalfRange];
             PropertyModel * proMoel = [[PropertyModel alloc] init];
             NSArray * keyword  = [self getPropertysKeywordWithProperty:resultString1.mutableCopy];
             NSArray * dateType = [self getPropertyTypeAndNameWithProperty:resultString1];            
@@ -148,17 +148,17 @@
 - (NSArray *) getPropertysKeywordWithProperty:(NSString *)propertyStr
 {
     //MRC 下需要截取关键字
-    NSString * shuxing1 = propertyStr;
-    NSString * zhengze1 = @"\\(.*\\)";
-    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:zhengze1 options:0 error:nil];
-    NSArray *matches1 = [regex1 matchesInString:shuxing1 options:0 range:NSMakeRange(0, shuxing1.length)];
+    NSString * propertyStr1 = propertyStr;
+    NSString * regularStr = @"\\(.*\\)";
+    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:regularStr options:0 error:nil];
+    NSArray *matches1 = [regex1 matchesInString:propertyStr1 options:0 range:NSMakeRange(0, propertyStr1.length)];
     
     for (int i = 0; i < matches1.count; i++)
     {
         NSRange firstHalfRange = [matches1[i] range];
         if (firstHalfRange.length > 0)
         {
-            NSString *resultString1 = [[shuxing1 substringWithRange:firstHalfRange] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            NSString *resultString1 = [[propertyStr1 substringWithRange:firstHalfRange] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             resultString1 = [resultString1 stringByReplacingOccurrencesOfString:@" " withString:@""];
             //去头
             NSString * deleteHead = [resultString1 substringFromIndex:1];
@@ -174,22 +174,22 @@
 - (NSMutableArray *) getPropertyTypeAndNameWithProperty:(NSString *) propertyStr;
 {
     //取出类型 和 对象名称
-    NSString * shuxing1 = propertyStr;
-    NSString * zhengze1 = @"\\).*\\;";
-    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:zhengze1 options:0 error:nil];
-    NSArray *matches1 = [regex1 matchesInString:shuxing1 options:0 range:NSMakeRange(0, shuxing1.length)];
+    NSString * propertyStr1 = propertyStr;
+    NSString * regularStr = @"\\).*\\;";
+    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:regularStr options:0 error:nil];
+    NSArray *matches1 = [regex1 matchesInString:propertyStr1 options:0 range:NSMakeRange(0, propertyStr1.length)];
     NSMutableArray * gjsArr = @[].mutableCopy;
     for (int i = 0 ; i < matches1.count; i++) {
         NSRange firstHalfRange =   [matches1[i] range];
         if (firstHalfRange.length > 0)
         {
             //去除两端空格
-            NSString *resultString1 = [[shuxing1 substringWithRange:firstHalfRange] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            NSString *resultString1 = [[propertyStr1 substringWithRange:firstHalfRange] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             //去头
             NSString * deleteHead = [resultString1 substringFromIndex:1];
             //去尾
             NSString * deleteEnd  = [deleteHead substringToIndex:deleteHead.length - 1];
-            if([shuxing1 rangeOfString:@"*"].location !=NSNotFound)
+            if([propertyStr1 rangeOfString:@"*"].location !=NSNotFound)
             {
                 //去除中间空格
                 deleteEnd = [deleteEnd stringByReplacingOccurrencesOfString:@" " withString:@""];
