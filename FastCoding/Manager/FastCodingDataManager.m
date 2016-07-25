@@ -72,22 +72,26 @@
         if (firstHalfRange.length > 0) {
             NSString *resultString1 = [propertyStr substringWithRange:firstHalfRange];
             NSRange range = [resultString1 rangeOfString:@"IBOutlet"];
-            if(range.location !=NSNotFound)
-            {
-                resultString1 = [resultString1 stringByReplacingOccurrencesOfString:@"IBOutlet" withString:@""];
-            }
+//            if(range.location !=NSNotFound)
+//            {
+//                resultString1 = [resultString1 stringByReplacingOccurrencesOfString:@"IBOutlet" withString:@""];
+//            }
+            //如果是xib 或者 storyboard 不添加到数组
+            if(range.location !=NSNotFound) continue;
             
             NSArray * keyword  =  [self getPropertysKeywordWithProperty:resultString1.mutableCopy];
             NSArray * dateType =  [self getPropertyTypeAndNameWithProperty:resultString1];
-            PropertyModel * proMoel = [[PropertyModel alloc] init];
-            proMoel.atomicType = [keyword firstObject];
-            proMoel.memorykeyWord = [keyword lastObject];
-            proMoel.dataType = [dateType firstObject];
-            proMoel.name     = [dateType lastObject];
             
-            NSArray * weakArray = @[@"assign",
-                                    @"weak"];
-            if (([weakArray containsObject:[keyword lastObject]]) || [proMoel.dataType isEqualToString:@"id"])
+            if (!keyword.count || !dateType.count)  continue;
+            PropertyModel * proMoel = [[PropertyModel alloc] init];
+            proMoel.atomicType    = [keyword firstObject];
+            proMoel.memorykeyWord = [keyword lastObject];
+            proMoel.dataType      = [dateType firstObject];
+            proMoel.name          = [dateType lastObject];
+            NSArray * weakArray = [self weakArray];
+            if (([weakArray containsObject:[keyword lastObject]]) ||
+                ([weakArray containsObject:[keyword firstObject]]) ||
+                [proMoel.dataType isEqualToString:@"id"])
             {
                 proMoel.propertyStr = [NSString stringWithFormat:@"%@ %@",proMoel.dataType,proMoel.name];
             }
@@ -99,8 +103,8 @@
             proMoel.isNeedSet = NO;
             proMoel.isNeedLazyGet = NO;
             proMoel.fileFrom = file;
+
             [self.propertyArray addObject:proMoel];
-            
         }
     }
 }
@@ -120,7 +124,10 @@
             NSString *resultString1 = [propertyStr substringWithRange:firstHalfRange];
             PropertyModel * proMoel = [[PropertyModel alloc] init];
             NSArray * keyword  = [self getPropertysKeywordWithProperty:resultString1.mutableCopy];
-            NSArray * dateType = [self getPropertyTypeAndNameWithProperty:resultString1];            
+            NSArray * dateType = [self getPropertyTypeAndNameWithProperty:resultString1];
+            
+            if (!keyword.count || !dateType.count)  continue;
+
             if ([[keyword lastObject] isEqualToString:@"readonly"])
             {
                 proMoel.isOnlyRead = YES;
@@ -210,11 +217,18 @@
     return gjsArr;
     
 }
+/**
+ *  弱引用数组
+ */
+- (NSArray *) weakArray
+{
+  return @[@"assign",
+           @"weak"];
+}
 //set
 - (NSString *) productSetMethodWithPropertyModel:(PropertyModel *) model
 {
-    NSArray * weakArray = @[@"assign",
-                            @"weak"];
+    NSArray * weakArray = [self weakArray];
     
     NSArray * typeArray = @[@"id"];
     
@@ -252,7 +266,9 @@
         
     }
     else
-        if ([weakArray containsObject:model.memorykeyWord] || [typeArray containsObject:model.dataType])
+        if ([weakArray containsObject:model.memorykeyWord]
+            || [weakArray containsObject:model.atomicType]
+            || [typeArray containsObject:model.dataType])
         {
             setMethodStr = [NSString stringWithFormat:@"\n- (void)set%@:(%@) %@ {\n    if (_%@ != %@) {\n        _%@ = %@;\n    }\n}",
                             capitalName,
@@ -269,16 +285,23 @@
 //get
 - (NSString *) productGetMethodWithPropertyModel:(PropertyModel *) model
 {
-    NSArray * weakArray = @[@"assign",
-                            @"weak"];
+    NSArray * weakArray = [self weakArray];
     NSArray * typeArray = @[@"id"];
     NSString *  setMethodStr = @"";
-    if ([weakArray containsObject:model.memorykeyWord] || [typeArray containsObject:model.dataType]) {
-        setMethodStr = [NSString stringWithFormat:@"\n- (%@)%@ {\n   return _%@;\n}",model.dataType,model.name,model.name];
+    if ([weakArray containsObject:model.memorykeyWord]
+        || [weakArray containsObject:model.atomicType]
+        || [typeArray containsObject:model.dataType]) {
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@)%@ {\n   return _%@;\n}",
+                        model.dataType,
+                        model.name,
+                        model.name];
     }
     else
     {
-        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n   return _%@;\n}",model.dataType,model.name,model.name];
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n   return _%@;\n}",
+                        model.dataType,
+                        model.name,
+                        model.name];
     }
     return setMethodStr;
 }
@@ -286,12 +309,11 @@
 //get lazy
 - (NSString *) productGetLazyMethodWithPropertyModel:(PropertyModel *) model
 {
-    NSArray * weakArray = @[@"assign",
-                            @"weak"];
+    NSArray * weakArray = [self weakArray];
     NSArray * typeArray = @[@"id"];
     NSString *  setMethodStr = @"";
     if (![weakArray containsObject:model.memorykeyWord] || ![typeArray containsObject:model.dataType]) {
-        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n	if(_%@ == nil) {\n       _%@ = [[%@ alloc] init];\n	}\n	return _%@;\n}",
+        setMethodStr = [NSString stringWithFormat:@"\n- (%@ *)%@ {\n	if (_%@ == nil) {\n        _%@ = [[%@ alloc] init];\n	}\n	return _%@;\n}",
                         model.dataType,
                         model.name,
                         model.name,

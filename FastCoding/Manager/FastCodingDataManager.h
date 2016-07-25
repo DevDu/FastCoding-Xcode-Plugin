@@ -14,6 +14,8 @@
 
 @property (nonatomic,strong) NSMutableArray * propertyArray;
 
+
+- (NSArray *) weakArray;
 + (instancetype) sharedDataManager;
 
 - (NSString *) inMfileGetHfileContentWithUrl:(NSString *) url;

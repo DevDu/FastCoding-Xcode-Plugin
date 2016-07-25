@@ -92,10 +92,12 @@
     cell.setButton1.objectValue = @(model.isNeedSet);
     cell.lazyButton1.objectValue = @(model.isNeedLazyGet);
     
-    NSArray * weakArray = @[@"assign",
-                            @"weak"];
+    NSArray * weakArray = [[FastCodingDataManager sharedDataManager] weakArray];
     NSArray * typeArray = @[@"id"];
-    if ([weakArray containsObject:model.memorykeyWord] || [typeArray containsObject:model.dataType]) {
+    if ([weakArray containsObject:model.memorykeyWord] ||
+        [weakArray containsObject:model.atomicType] ||
+        [typeArray containsObject:model.dataType])
+    {
         cell.lazyButton1.enabled = NO;
     }
     return cell;
