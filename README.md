@@ -1,4 +1,4 @@
-**该功能主要是根据java的开发工具 eclipse 快速生成属性的getter ,setter 方法有感而发.出于兴趣开发本插件,目前主要功能是根据.h,.m文件声明的属性，自动生成get,set,lazy实例化方法**
+**FastCoding是一个对Xcode所扩展的插件,主要是根据java的开发工具 eclipse 快速生成属性的getter ,setter 方法有感而发.出于兴趣开发本插件,目前主要功能是根据.h,.m文件声明的属性，自动生成get,set,lazy实例化方法**
 ####安装 
 方式1
 
