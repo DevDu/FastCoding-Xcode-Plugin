@@ -19,7 +19,7 @@
 ####快捷键
 (Product ->Select  Generate )或者( Command + =) 弹出选择属性弹窗, 选择要生成的属性以及对应方法.
 
-![screenshot](https://github.com/DevDu/FastCoding-Xcode-Plugin/blob/master/screenshot/screenShot3.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/DevDu/FastCoding-Xcode-Plugin/master/screenshot/screenShot1.gif)
 
 ####卸载
 卸载此插件
