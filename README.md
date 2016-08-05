@@ -24,3 +24,6 @@
 ####卸载
 卸载此插件
 ~/Library/Application Support/Developer/Shared/Xcode/Plug-ins 路径下删除对应的插件即可.
+####O(∩_∩)O
+好的一款插件离不开大家的支持,如果觉得这个插件还行,你可以
+右上角Star✨支持一下.
